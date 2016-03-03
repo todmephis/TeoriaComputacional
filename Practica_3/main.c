@@ -111,8 +111,9 @@ printf("Ingresa tu cadena\tNOTA: Recuerda que la cadena solo puede tener '0' y '
     }
 if(actual == final)
 	printf("\nLa cadena es correcta\n");
-else
+else{
 	printf("\tNo es estado final\n");
 	printf("\nCadena no aceptada\n");
+}
   return 0;
 }
