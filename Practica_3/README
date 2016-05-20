@@ -1,4 +1,15 @@
-Este codigo en C verifica cadenas de "ceros" y "unos" con el automata que se muestra
-en la siguiente imagen:
-http://goo.gl/sfh6eu
-Practica numero 3 para la materia Teoria Computacional.
+Practica número 2 | Teoría de la computación
+Tema: Autómatas finitos (Determinista).
+Más acerca del tema: Ver PDF descargable[1]
+Profesor: M. en C. Luis Hernandez Olvera
+Escuela Superior de Cómputo
+
+Objetivo de la práctica
+Crear un programa en lenguaje "C" que modele el autómata[2] finito determinista, 
+el cual sea capaz de aprobar o rechazar cadenas e imprimir su recorrido.
+Coded by todmephis
+:v
+
+Referencias:
+[1]: https://mega.nz/#!dVZWxCCA!ItDipjB7j3vxYN8k8Sq8NDwYnZpGkBGfrWr3oKk6wdk
+[2]: http://goo.gl/sfh6eu
