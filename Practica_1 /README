@@ -1,4 +1,24 @@
-Practica número 1 de la materia "Teoría Computacional" con el profesor
-Hernandez Olvera Luis en la Escuela Superior de Cómputo semestre 16/2
-Febrero 2016
-Creado por todmephis / IS
+Practica número 1 | Teoría de la computación
+Tema: Alfabetos, símbolos y cadenas
+Más acerca del tema: Ver PDF descargable[1]
+Profesor: M. en C. Luis Hernandez Olvera
+Escuela Superior de Cómputo
+
+Objetivo de la práctica
+Crear un programa en lenguaje C que ingreses dos cadenas y sea
+capaz de realizar operaciones con esas cadenas. Las operaciones
+que se requieren son:
+1. Concatenar
+2. Prefijo
+3. Subfijo
+4. Subcadena
+5. Inversa
+6. Potencia
+7. Subsecuencia
+
+La práctica es totalmente funcional y todo lo hace correctamente.
+
+Coded by todmephis
+:v
+Referencias: 
+[1]: https://mega.nz/#!8Q4j3LAT!4QWjAg_-_c5301329rmPqjCK1ELA6WsiQfHSjZScIwk

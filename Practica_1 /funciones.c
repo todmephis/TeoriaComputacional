@@ -1,5 +1,12 @@
 #include "funciones.h"
-int
+
+void flush_in() 
+{ 
+int ch; 
+while( (ch = fgetc(stdin)) != EOF && ch != '\n' ){} 
+} 
+
+void
 concats (char U[], char V[])
 {
   char U2[20];
@@ -8,7 +15,6 @@ concats (char U[], char V[])
   strcpy (V2, V);
   printf ("U+V = %s\n", strcat (U, V));
   printf ("V+U = %s\n", strcat (V2, U2));
-  return 0;
 }
 
 int
@@ -29,15 +35,13 @@ prefix (char U[], int pre, int len)
     }
   else
     {
-      /*printf("Prefijo\n");
-         printf("w = %s\n", U); */
-      for (contador = 0; contador < (len - pre); contador++)
+        for(contador = pre; contador < len; contador ++)
 	{
 	  printf ("%c", U[contador]);
 	}
       printf ("\n");
     }
-  return 0;
+    return 0;
 }
 
 int
@@ -58,18 +62,16 @@ subfix (char U[], int sub, int len)
     }
   else
     {
-      /*printf("Prefijo\n");
-         printf("w = %s\n", U); */
-      for (contador = sub; contador < len; contador++)
+        for(contador =0; contador < (len-sub); contador++)
 	{
 	  printf ("%c", U[contador]);
 	}
       printf ("\n");
     }
-  return 0;
+    return 0;
 }
 
-int
+void
 substring (char U[], int pre, int sub, int len)
 {
   int contador = 0;
@@ -91,18 +93,15 @@ substring (char U[], int pre, int sub, int len)
     }
   else
     {
-      /*printf("Prefijo\n");
-         printf("w = %s\n", U); */
       for (contador = sub; contador < (len - pre); contador++)
 	{
 	  printf ("%c", U[contador]);
 	}
       printf ("\n");
     }
-  return 0;
 }
 
-int
+void
 inverse (char U[], int len)
 {
   int contador = 0;
@@ -111,10 +110,9 @@ inverse (char U[], int len)
       printf ("%c", U[contador]);
     }
   printf ("\n");
-  return 0;
 }
 
-int
+void
 strpow (char U[], int pown, int len)
 {
   int contador = 0, contador1 = 0;
@@ -147,31 +145,45 @@ strpow (char U[], int pown, int len)
 	}
       printf ("\n");
     }
-  return 0;
 }
 
-int
-subsec (char U[], char b[], int u_len)
+void
+subsec (char U[], int u_len, char b[], int b_len)
 {
-char a[100], character;
-char * ptr;
-int contador=0;
-strcpy(a, U);
-while(contador< 2/*(int)strlen(b)*/){
+char character=' ';
+char * ptr=NULL, * temp=NULL;
+int contador=0, index=0, aux=0;
+while(contador< b_len){
 	character=b[contador];
   ptr=strchr(U, character);
   strncpy(ptr, " ", 1);
 contador++;
 }
-printf("%s\n", U);
-return 0;
+for(contador=0; contador < (int)strlen(U); contador++){
+if(U[contador]==' ')
+  aux++;
+}
+temp=(char *)malloc(aux * sizeof(char));
+for(index=0; index < aux; index++){
+  temp[index]='#';
+}
+index=0;
+
+for(contador=0; contador < (int)strlen(U); contador++){
+  if(U[contador]!=' '){
+  temp[index]=U[contador];
+  index++;
+}
+}
+printf("%s\n", temp);
+free(temp);
 }
 
-int
+void
 menu (char U[], char V[], int u_len, int v_len)
 {
-	char b[100];
-  int opt = 0, aux1 = 0, aux2 = 0, conti = 0, flag1 = 0, flag2 = 0;
+	char * u_temp=NULL, * v_temp=NULL, b[20];
+  int opt = 0, aux1 = 0, aux2 = 0, conti = 0, flag1 = 0, flag2 = 0, b_len=0;
   printf ("1. Concatenar\n");
   printf ("2. Prefijo\n");
   printf ("3. Subfijo\n");
@@ -179,6 +191,7 @@ menu (char U[], char V[], int u_len, int v_len)
   printf ("5. Inversa\n");
   printf ("6. Potencia\n");
   printf ("7. Subsecuencia\n");
+  printf("8.  Salir\n");
   scanf ("%d", &opt);
   switch (opt)
     {
@@ -246,7 +259,7 @@ menu (char U[], char V[], int u_len, int v_len)
       if (flag1 == 1 && flag2 == 1)
 	{
 	  substring (U, aux1, aux2, u_len);
-	  substring (V, aux1, aux2, v_len);
+	  substring (V, aux1, aux2, v_len);//creo que hay que voltear el aux1 y aux2
 	  printf ("1. Mostrar menu / 2. Salir\n");
 	  scanf ("%d", &conti);
 	  if (conti == 1)
@@ -292,9 +305,35 @@ menu (char U[], char V[], int u_len, int v_len)
 	exit (1);
       break;
     case 7:
-    printf("Ingresa cadena para la subsecuencia\n");
-    gets(b);
-       subsec(U, b, u_len);
+    flush_in();
+    u_temp=(char *)malloc(u_len * sizeof(char));
+    v_temp=(char *)malloc(v_len * sizeof(char));
+    if(u_temp==NULL || v_temp==NULL){
+      perror("Error de memoria\n");
+      exit(1);
+    }
+    strcpy(u_temp, U);
+    strcpy(v_temp, V);
+printf("Ingresa cadena para obtener la subsecuencia\n");
+fgets(b, sizeof(b), stdin);
+b_len=( (int)strlen(b)-1);
+printf("%d\n", b_len);
+       subsec(u_temp, u_len, b, b_len);
+       subsec(v_temp, v_len, b, b_len);
+       free(u_temp);
+       free(v_temp);
+       printf ("1. Mostrar menu / 2. Salir\n");
+      scanf ("%d", &conti);
+      if (conti == 1)
+  {
+    system ("clear");
+    menu (U, V, u_len, v_len);
+  }
+      else
+  exit (1);
+    break;
+    case 8:
+    exit(1);
     break;
     default:
       printf ("Opción no válida\n");

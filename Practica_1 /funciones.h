@@ -5,12 +5,12 @@
 #include <sys/types.h>
 #define LAMBDA "\u03BB"
 #define OMEGA "\u03C9"
-int concats (char[], char[]);
-//concats espera dos cadenas de char
+void flush_in(void);
+void concats (char[], char[]);
 int prefix (char[], int, int);
 int subfix (char[], int, int);
-int substring (char[], int, int, int);
-int inverse (char[], int);
-int strpow (char[], int, int);
-int subsec (char[], char[]);
-int menu (char[], char[], int, int);
+void substring (char[], int, int, int);
+void inverse (char[], int);
+void strpow (char[], int, int);
+void subsec (char[], int, char[], int);
+void menu (char[], char[], int, int);

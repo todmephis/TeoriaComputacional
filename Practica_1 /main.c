@@ -11,8 +11,6 @@ main (void)
   gets (V);
   u_len = (int) strlen (U);
   v_len = (int) strlen (V);
-  printf("%d\n", u_len);
-  printf("%d\n", u_len);
   menu (U, V, u_len, v_len);
   return 0;
 }
