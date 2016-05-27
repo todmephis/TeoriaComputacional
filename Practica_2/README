@@ -1,0 +1,22 @@
+Practica número 2 | Teoría de la computación
+Tema: Lenguajes.
+Más acerca del tema: Ver PDF descargable[1]
+Profesor: M. en C. Luis Hernandez Olvera
+Escuela Superior de Cómputo
+
+Objetivo de la práctica
+Crear un programa en lenguaje C que lea dos lenguajes tomando como
+alfabeto los caracteres imprimibles del código ASCII[2] y realice las
+siguientes operaciones:
+1. Union
+2. Concatenación
+3. Inversa
+4. Potencia
+
+/*La práctica es totalmente funcional y todo lo hace correctamente.*/
+
+Coded by todmephis
+:v
+Referencias: 
+[1]: https://mega.nz/#!FcRiUADb!nr_Ffn4lXtndcMCzY-b7wf2A3F5GCFC7TbS0UuuZkmM
+[2]: https://es.wikipedia.org/wiki/ASCII
